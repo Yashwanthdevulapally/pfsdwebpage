@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> - Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <h1>FlexiFit Dashboard</h1>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="{% url 'workout_plan' %}">Workout Plan</a>
+        <a href="{% url 'nutrition' %}">Nutrition</a>
+        <a href="{% url 'profile' %}">Profile</a>
+        <a href="{% url 'exercise_library' %}">Exercise Library</a>
+        <li><a href="{% url 'about' %}">About</a></li> <!-- Add this line -->
+        
+    </nav>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Welcome to your Dashboard</h2>
+        <p>Manage your fitness activities, view workout plans, nutrition info, and much more.</p>
+    </div>
+</body>
+</html>

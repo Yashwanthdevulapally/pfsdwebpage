@@ -1,0 +1,56 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> <!-- Ensure this path is correct -->
+    <style>
+        body {
+            background-color: #010329; /* Dark background */
+            color: white; /* Text color */
+            padding: 20px; /* Padding for spacing */
+            text-align: center; /* Center align all text */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        p {
+            max-width: 600px; /* Max width for the paragraph */
+            margin: 0 auto 40px; /* Center the paragraph with margin below */
+        }
+
+        .contact-info {
+            margin-bottom: 20px; /* Space below the contact section */
+        }
+
+        .contact-info button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-info button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>About Us</h1>
+    <p>Welcome to our about page! Here you can learn more about our mission, vision, and the team behind this project.</p>
+    
+    <div class="contact-info">
+        <h2>Contact Info</h2>
+        <button onclick="alert('Email: yashwanthdevulapally1\nPhone: 9182983242')">Show Contact Info</button>
+    </div>
+</body>
+</html>

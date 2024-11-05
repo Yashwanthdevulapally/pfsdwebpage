@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Library</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .exercise-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            transition: transform 0.2s;
+        }
+        .exercise-card:hover {
+            transform: scale(1.02);
+        }
+        .exercise-img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercise Library</h1>
+    
+    <div class="search-container">
+        <form method="GET" action="{% url 'exercise_library' %}">
+            <input type="text" name="q" placeholder="Search exercises..." value="{{ query }}">
+            <button type="submit" class="button">Search</button>
+        </form>
+    </div>
+
+    <div class="exercise-list">
+        {% for exercise in exercises %}
+        <div class="exercise-card">
+            <h2>{{ exercise.name }}</h2>
+            {% if exercise.image %}
+            <img src="{{ exercise.image.url }}" alt="{{ exercise.name }}" class="exercise-img">
+            {% endif %}
+            <p><strong>Description:</strong> {{ exercise.description }}</p>
+            <p><strong>Muscle Groups Targeted:</strong> {{ exercise.muscle_groups }}</p>
+            <p><strong>Instructions:</strong> {{ exercise.instructions }}</p>
+            <p><strong>Equipment Needed:</strong> {{ exercise.equipment_needed }}</p>
+            <p><strong>Common Mistakes:</strong> {{ exercise.common_mistakes }}</p>
+            <p><strong>Variations:</strong> {{ exercise.variations }}</p>
+            <p><strong>Sets and Reps:</strong> {{ exercise.sets_reps }}</p>
+            <a href="#" class="button">View Details</a>
+        </div>
+        {% empty %}
+        <p></p>
+        {% endfor %}
+    </div>
+</body>
+</html>

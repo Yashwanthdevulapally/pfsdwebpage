@@ -1,0 +1,73 @@
+/* calc/static/css/profile.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.profile-container {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.profile-container h1 {
+    color: #34495e;
+    margin-bottom: 1.5em;
+}
+
+.form-group {
+    margin-bottom: 1.2em;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #34495e;
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.submit-button {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    padding: 0.8em 1.5em;
+    color: #ffffff;
+    background: #4FD1C5;
+    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 2px 4px 10px rgba(79,209,197,.64);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background: linear-gradient(90deg, rgba(79,209,197,1) 0%, rgba(129,230,217,1) 100%);
+    box-shadow: 2px 4px 15px rgba(79,209,197,.8);
+}

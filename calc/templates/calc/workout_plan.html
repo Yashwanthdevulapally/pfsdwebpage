@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Plan</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .workout-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .workout-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .workout-option {
+            background: #007bff;
+            color: white;
+            padding: 30px; /* Increased padding */
+            margin: 10px;
+            border-radius: 8px;
+            width: 35%; /* Increased width */
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1.2em; /* Increased font size */
+        }
+
+        .workout-option:hover {
+            background: #0056b3;
+        }
+
+        .workout-summary {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9ecef;
+            border-radius: 8px;
+        }
+
+        .workout-summary h3 {
+            margin-top: 0;
+        }
+
+        .exercise-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .exercise-table th, .exercise-table td {
+            border: 1px solid #007bff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .exercise-table th {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Workout Plan</h1>
+
+        <!-- Muscle Building Section -->
+        <div class="workout-section">
+            <h2>MUSCLE BUILDING</h2>
+        </div>
+
+        <div class="workout-options">
+            <div class="workout-option" onclick="showWorkout('awesome-arms')">
+                <h3>Awesome Arms</h3>
+                <p>8 Weeks to Better Biceps and Triceps</p>
+            </div>
+            <div class="workout-option" onclick="showWorkout('big-and-strong')">
+                <h3>Big and Strong</h3>
+                <p>8 Week Advanced Strength Building Workout</p>
+            </div>
+            <div class="workout-option" onclick="showWorkout('sculpted-strength')">
+                <h3>Sculpted Strength</h3>
+                <p>The Ultimate 12 Week Bodybuilding Program</p>
+            </div>
+        </div>
+
+        <!-- Workout Summaries -->
+        <div id="awesome-arms" class="workout-summary">
+            <h3>Awesome Arms: Workout Summary</h3>
+            <p><strong>Main Goal:</strong> Build Muscle</p>
+            <p><strong>Workout Type:</strong> Single Muscle Group</p>
+            <p><strong>Training Level:</strong> Beginner</p>
+            <p><strong>Program Duration:</strong> 8 weeks</p>
+            <p><strong>Days Per Week:</strong> 1</p>
+            <p><strong>Time Per Workout:</strong> 30-40 minutes</p>
+            <p><strong>Equipment Required:</strong> Barbell, Cables, Dumbbells, EZ Bar</p>
+            <p><strong>Target Gender:</strong> Male & Female</p>
+            <p><strong>Recommended Supps:</strong> Protein, Creatine</p>
+
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Strict Curl</td>
+                        <td>3</td>
+                        <td>10, 8, 6</td>
+                    </tr>
+                    <tr>
+                        <td>Close Grip Bench Press</td>
+                        <td>3</td>
+                        <td>10, 8, 6</td>
+                    </tr>
+                    <tr>
+                        <td>Incline Dumbbell Curl</td>
+                        <td>2</td>
+                        <td>8, 6</td>
+                    </tr>
+                    <tr>
+                        <td>Lying Tricep Extension</td>
+                        <td>2</td>
+                        <td>8, 6</td>
+                    </tr>
+                    <tr>
+                        <td>Hammer Curl</td>
+                        <td>2</td>
+                        <td>8, 6</td>
+                    </tr>
+                    <tr>
+                        <td>Single Arm Overhead Extension</td>
+                        <td>2</td>
+                        <td>8, 6</td>
+                    </tr>
+                    <tr>
+                        <td>Reverse Grip Cable Curl</td>
+                        <td>1</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Straight Bar Tricep Extension</td>
+                        <td>1</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="big-and-strong" class="workout-summary">
+            <h3>Big and Strong: Workout Summary</h3>
+            <p><strong>Main Goal:</strong> Build Muscle</p>
+            <p><strong>Workout Type:</strong> Full Body</p>
+            <p><strong>Training Level:</strong> Advanced</p>
+            <p><strong>Program Duration:</strong> 8 weeks</p>
+            <p><strong>Days Per Week:</strong> 5</p>
+            <p><strong>Time Per Workout:</strong> 60 minutes</p>
+            <p><strong>Equipment Required:</strong> Barbell, Dumbbells, Kettlebells</p>
+            <p><strong>Target Gender:</strong> Male & Female</p>
+            <p><strong>Recommended Supps:</strong> Protein, Creatine</p>
+
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Deadlifts</td>
+                        <td>4</td>
+                        <td>6-8</td>
+                    </tr>
+                    <tr>
+                        <td>Barbell Bench Press</td>
+                        <td>4</td>
+                        <td>6-8</td>
+                    </tr>
+                    <tr>
+                        <td>Squats</td>
+                        <td>4</td>
+                        <td>6-8</td>
+                    </tr>
+                    <tr>
+                        <td>Pull-Ups</td>
+                        <td>3</td>
+                        <td>8-10</td>
+                    </tr>
+                    <tr>
+                        <td>Shoulder Press</td>
+                        <td>3</td>
+                        <td>8-10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sculpted-strength" class="workout-summary">
+            <h3>Sculpted Strength: Workout Summary</h3>
+            <p><strong>Main Goal:</strong> Build Muscle</p>
+            <p><strong>Workout Type:</strong> Bodybuilding</p>
+            <p><strong>Training Level:</strong> Intermediate</p>
+            <p><strong>Program Duration:</strong> 12 weeks</p>
+            <p><strong>Days Per Week:</strong> 6</p>
+            <p><strong>Time Per Workout:</strong> 45-60 minutes</p>
+            <p><strong>Equipment Required:</strong> Dumbbells, Machines</p>
+            <p><strong>Target Gender:</strong> Male & Female</p>
+            <p><strong>Recommended Supps:</strong> Protein, BCAAs</p>
+
+            <table class="exercise-table">
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bench Press</td>
+                        <td>4</td>
+                        <td>8-10</td>
+                    </tr>
+                    <tr>
+                        <td>Barbell Rows</td>
+                        <td>4</td>
+                        <td>8-10</td>
+                    </tr>
+                    <tr>
+                        <td>Leg Press</td>
+                        <td>4</td>
+                        <td>10-12</td>
+                    </tr>
+                    <tr>
+                        <td>Overhead Press</td>
+                        <td>3</td>
+                        <td>8-10</td>
+                    </tr>
+                    <tr>
+                        <td>Lat Pulldowns</td>
+                        <td>3</td>
+                        <td>10-12</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            function showWorkout(workout) {
+                // Hide all workout summaries
+                const summaries = document.querySelectorAll('.workout-summary');
+                summaries.forEach(summary => summary.style.display = 'none');
+
+                // Show the selected workout summary
+                document.getElementById(workout).style.display = 'block';
+            }
+        </script>
+    </div>
+</body>
+</html>

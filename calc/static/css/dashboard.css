@@ -1,0 +1,85 @@
+/* Dashboard Layout */
+body {
+    font-family: Arial, sans-serif;
+    background: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+h1 {
+    margin-top: 30px; /* Increased top margin */
+    font-size: 48px; /* Increased font size */
+    color: #ff0000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Navigation Bar */
+nav {
+    margin: 40px 0; /* Increased margin */
+    display: flex;
+    justify-content: center;
+    background-color: #34495e;
+    border-radius: 8px;
+    width: 800px; /* Increased width */
+    font-size: 0;
+}
+
+nav a {
+    padding: 20px 30px; /* Increased padding */
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s;
+    font-size: 20px; /* Increased font size */
+    display: inline-block;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background-color: #1abc9c;
+}
+
+/* Animated Menu Effect */
+nav .animation {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    transition: all 0.5s ease;
+    border-radius: 8px;
+}
+
+.content {
+    text-align: center;
+    max-width: 1000px; /* Increased max width */
+    margin: 30px; /* Increased margin */
+}
+
+.content h2 {
+    font-size: 36px; /* Increased font size */
+    margin-bottom: 20px; /* Increased bottom margin */
+}
+
+.content p {
+    font-size: 20px; /* Increased font size */
+}
+
+/* Button Styling */
+.button {
+    padding: 15px 30px; /* Increased padding */
+    font-size: 20px; /* Increased font size */
+    color: #fff;
+    background: #ff0000;
+    border: none;
+    border-radius: 8px; /* Increased border radius */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background: #e74c3c;
+}

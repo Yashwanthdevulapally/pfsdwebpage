@@ -1,0 +1,336 @@
+<!-- calc/templates/calc/profile.html -->
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+ <!-- Load the static template tag library -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - FlexiFit</title>
+    <link rel="stylesheet" href="{% static 'calc/css/styles.css' %}"> <!-- Ensure this points to your CSS -->
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(to bottom right, #070630 0%, #060454 100%);
+            min-height: 100vh;
+            flex-direction: column; /* Changed to column for vertical stacking */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+
+        form {
+            background: #34495e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            margin-bottom: 40px; /* Added margin to separate form from animation */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(90deg, rgba(129, 230, 217, 1) 0%, rgba(79, 209, 197, 1) 100%);
+            border: none;
+            border-radius: 5px;
+            color: #313133;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1abc9c;
+        }
+
+        .success-message {
+            color: #2ecc71;
+            margin-top: 20px;
+        }
+
+        /* Animation styles */
+        .animation-container {
+            display: block;
+            position: relative;
+            width: 800px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .lightning-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: flex;
+            transform: translateY(-50%);
+        }
+
+        .lightning {
+            position: absolute;
+            display: block;
+            height: 12px;
+            width: 12px;
+            border-radius: 12px;
+            transform-origin: 6px 6px;
+            animation-name: woosh;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+            animation-direction: alternate;
+        }
+
+        .lightning.white {
+            background-color: white;
+            box-shadow: 0px 50px 50px 0px rgba(255, 255, 255, 0.7);
+        }
+
+        .lightning.red {
+            background-color: #fc7171;
+            box-shadow: 0px 50px 50px 0px rgba(252, 113, 113, 0.7);
+            animation-delay: 0.2s;
+        }
+
+        .boom-container {
+            position: absolute;
+            display: flex;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            align-items: center;
+            transform: translateY(-50%);
+            left: 200px;
+            top: -145px;
+        }
+
+        .shape {
+            display: inline-block;
+            position: relative;
+            opacity: 0;
+            transform-origin: center center;
+        }
+
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            transform-origin: 50% 80%;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+            margin-left: -15px;
+            border-width: 0 2.5px 5px 2.5px;
+            border-color: transparent transparent #42e599 transparent;
+            animation-name: boom-triangle;
+        }
+
+        .shape.triangle.big {
+            margin-left: -25px;
+            border-width: 0 5px 10px 5px;
+            border-color: transparent transparent #fade28 transparent;
+            animation-name: boom-triangle-big;
+        }
+
+        .shape.disc {
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+            background-color: #d15ff4;
+            animation-name: boom-disc;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+        }
+
+        .shape.circle {
+            width: 20px;
+            height: 20px;
+            animation-name: boom-circle;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite;
+            border-radius: 100%;
+            margin-left: -30px;
+        }
+
+        .shape.circle.white {
+            border: 1px solid white;
+        }
+
+        .shape.circle.big {
+            width: 40px;
+            height: 40px;
+            margin-left: 0px;
+        }
+
+        @keyframes woosh {
+            0% {
+                width: 12px;
+                transform: translate(0px, 0px) rotate(-35deg);
+            }
+            15% {
+                width: 50px;
+            }
+            30% {
+                width: 12px;
+                transform: translate(214px, -150px) rotate(-35deg);
+            }
+            30.1% {
+                transform: translate(214px, -150px) rotate(46deg);
+            }
+            50% {
+                width: 110px;
+            }
+            70% {
+                width: 12px;
+                transform: translate(500px, 150px) rotate(46deg);
+            }
+            70.1% {
+                transform: translate(500px, 150px) rotate(-37deg);
+            }
+            85% {
+                width: 50px;
+            }
+            100% {
+                width: 12px;
+                transform: translate(700px, 0) rotate(-37deg);
+            }
+        }
+
+        @keyframes boom-circle {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 0;
+                transform: scale(3);
+            }
+            100% {
+            }
+        }
+
+        @keyframes boom-triangle-big {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            40% {
+                opacity: 0;
+                transform: scale(2.5) translate(50px, -50px) rotate(360deg);
+            }
+            100% {
+            }
+        }
+
+        @keyframes boom-triangle {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            30% {
+                opacity: 0;
+                transform: scale(3) translate(20px, 40px) rotate(360deg);
+            }
+            100% {
+            }
+        }
+
+        @keyframes boom-disc {
+            0% {
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            40% {
+                opacity: 0;
+                transform: scale(2) translate(-70px, -30px);
+            }
+            100% {
+            }
+        }
+
+        /* Footer styles */
+        .footer {
+            color: white;
+            font-size: 10px;
+            position: fixed;
+            bottom: 0;
+            font-weight: 200;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #c6c6c6;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profile</h1>
+
+    {% if success %}
+        <div class="success-message">Profile updated successfully!</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="age" placeholder="Age" required>
+        <input type="number" name="height" placeholder="Height (cm)" required>
+        <input type="number" name="weight" placeholder="Weight (kg)" required>
+        <input type="text" name="goal" placeholder="Fitness Goal" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="animation-container">
+        <div class="lightning-container">
+            <div class="lightning white"></div>
+            <div class="lightning red"></div>
+        </div>
+        <div class="boom-container">
+            <div class="shape circle big white"></div>
+            <div class="shape circle white"></div>
+            <div class="shape triangle big yellow"></div>
+            <div class="shape disc white"></div>
+            <div class="shape triangle blue"></div>
+        </div>
+        <div class="boom-container second">
+            <div class="shape circle big white"></div>
+            <div class="shape circle white"></div>
+            <div class="shape disc white"></div>
+            <div class="shape triangle blue"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Implemented with ❤ by <a href="https://mrossignol.fr" target="_blank">Maxime Rossignol</a> from an original idea by <a href="https://www.uplabs.com/shashanksahay" target="_blank">Shashank Sahay</a>
+    </div>
+</body>
+</html>
